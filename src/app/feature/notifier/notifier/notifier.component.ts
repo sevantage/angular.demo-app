@@ -16,12 +16,4 @@ export class NotifierComponent implements OnInit {
   onNotify() {
     if (this.text) this.notificationSvc.sendNotification(this.text);
   }
-
-  /*
-  notifications: string[] = [];
-
-  constructor(private notificationSvc: NotificationService) {
-    this.notificationSvc.newNotification.subscribe(text => this.notifications.unshift(text))
-  }
-  */
 }

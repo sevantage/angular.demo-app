@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BlockComponent } from './block/block.component';
+import { CommonImportsModule } from '../common-imports/common-imports.module';
 
 
 
@@ -9,7 +10,8 @@ import { BlockComponent } from './block/block.component';
     BlockComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CommonImportsModule,
   ],
   exports: [
     BlockComponent,

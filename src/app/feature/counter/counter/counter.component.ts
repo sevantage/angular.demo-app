@@ -7,9 +7,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class CounterComponent implements OnInit {
   @Input() value: number = 0;
+  // Output für two-way databinding
+  @Output() valueChange = new EventEmitter<number>();
+  // Zusätzliche Events
   @Output() increased = new EventEmitter<number>();
   @Output() decreased = new EventEmitter<number>();
-  @Output() valueChange = new EventEmitter<number>();
 
   constructor() { }
 
@@ -27,12 +29,4 @@ export class CounterComponent implements OnInit {
     this.decreased.next(this.value);
     this.valueChange.next(this.value);
   }
-
-  /*
-  value = 123;
-
-  onCounterChanged(value: number) {
-    console.log(value);
-  }
-  */
 }

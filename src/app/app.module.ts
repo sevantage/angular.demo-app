@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { CounterModule } from './feature/counter/counter.module';
-import { NotifierModule } from './feature/notifier/notifier.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,8 +15,6 @@ import { NotifierModule } from './feature/notifier/notifier.module';
     AppRoutingModule,
     CoreModule,
     SharedModule,
-    CounterModule,
-    NotifierModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

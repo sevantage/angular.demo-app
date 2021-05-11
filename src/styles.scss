@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  margin: 0px;
+}
+
+app-root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header,
+.top-level-nav,
+.content,
+.footer {
+  padding: 8px;
+}
+
+.top-level-nav {
+  ul {
+    margin-block: 0px;
+    padding-inline: 0px;
+    display: flex;
+    flex-direction: row;
+
+    li {
+      list-style-type: none;
+      padding-left: 10px;
+
+      &:first-child {
+        padding-left: 0px;
+      }
+    }
+  }
+}
+
+.notifications {
+  position: absolute;
+  min-width: 20vw;
+  min-height: 20vh;
+  right: 20px;
+  top: 20px;
+  border: solid 1px silver;
+}
+
+.content {
+  flex: 1;
+}
+
+h1, h2 {
+  margin-block: 0px;
+}

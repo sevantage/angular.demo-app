@@ -21,22 +21,7 @@ export class TasksService {
     return this.http.get<Task[]>(this.env.apiUrl + '/tasks');
   }
 
-  /*
-
-<button (click)="onLoadTasks()">Load tasks</button>
-<ul>
-  <li *ngFor="let task of tasks">{{ task.description }}</li>
-</ul>
-
-  */
-
-  /*
-  tasks: Task[] = [];
-
-  constructor(private tasksSvc: TasksService) {}
-
-  onLoadTasks() {
-    this.tasksSvc.getTasks().subscribe(t => this.tasks = t);
+  getTaskById(id: number): Observable<Task> {
+    return this.http.get<Task>(this.env.apiUrl + `/tasks/${id}`);
   }
-  */
 }

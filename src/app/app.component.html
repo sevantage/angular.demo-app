@@ -1,5 +1,36 @@
-<h1>{{ title }}</h1>
-<div>
-  Environment: {{ env.setting }}
+<div class="header">
+  <h1>{{ title }}</h1>
 </div>
-<router-outlet></router-outlet>
+<div class="top-level-nav">
+  <ul>
+    <li>
+      <a [routerLink]="['/']">Home</a>
+    </li>
+    <li>
+      <a [routerLink]="['counter']">Counter</a>
+    </li>
+    <li>
+      <a [routerLink]="['notifier']">Notifier</a>
+    </li>
+    <li>
+      <a [routerLink]="['tasks']">Tasks</a>
+    </li>
+    <li>
+      <a [routerLink]="['pipes']">Pipes</a>
+    </li>
+  </ul>
+</div>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+<app-block class="notifications">
+  <h2 block-header>Notifications</h2>
+  <div *ngIf="notifications?.length">
+    <ul>
+      <li *ngFor="let notification of notifications; let i = index">
+        {{ i }} - {{ notification }}
+      </li>
+    </ul>
+  </div>
+</app-block>
+<div class="footer">Environment: {{ env.setting }}</div>

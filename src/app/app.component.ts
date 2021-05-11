@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { NotificationService } from './core/notifications/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,11 @@ export class AppComponent {
   title = 'demo-app';
   env = environment;
 
-  constructor() {
+  notifications: string[] = [];
+
+  constructor(private notificationSvc: NotificationService) {
+    this.notificationSvc.newNotification.subscribe((text) =>
+      this.notifications.unshift(text)
+    );
   }
 }
