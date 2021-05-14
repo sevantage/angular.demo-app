@@ -1,0 +1,17 @@
+<div>
+  <h2>Async</h2>
+  <span>{{ obsInterval$ | async }}</span>
+</div>
+<div>
+  <h2>Manual subscription</h2>
+  <button (click)="subscribe()">Subscribe</button>
+  {{ value }}
+  <button (click)="unsubscribe()">Unsubscribe</button>
+</div>
+<div>
+  <h2>Operators & Pipes</h2>
+  <input type="text" #search />
+  <p>
+    {{ obsInput$ | async }}
+  </p>
+</div>

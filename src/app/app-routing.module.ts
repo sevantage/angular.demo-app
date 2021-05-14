@@ -1,5 +1,21 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/auth/auth.guard';
+
+@Component({
+  template: '<div>Home</div>',
+})
+export class HomeComponent {}
+
+@Component({
+  template: '<div>Not found</div>',
+})
+export class NotFoundComponent {}
+
+@Component({
+  template: '<div>Not authorized</div>',
+})
+export class UnauthorizedComponent {}
 
 const routes: Routes = [
   {
@@ -16,15 +32,43 @@ const routes: Routes = [
     path: 'tasks',
     loadChildren: () =>
       import('./feature/tasks/tasks.module').then((m) => m.TasksModule),
+    canActivate: [ AuthGuard ],
   },
   {
     path: 'pipes',
     loadChildren: () =>
       import('./feature/pipes/pipes.module').then((m) => m.PipesModule),
   },
+  {
+    path: 'observables',
+    loadChildren: () =>
+      import('./feature/observables/observables.module').then((m) => m.ObservablesModule),
+  },
+  {
+    path: 'flex',
+    loadChildren: () =>
+      import('./feature/flex/flex.module').then((m) => m.FlexModule),
+  },
+  {
+    path: 'unauthorized',
+    component: UnauthorizedComponent,
+  },
+  {
+    path: 'not-found',
+    component: NotFoundComponent,
+  },
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found',
+  }
 ];
 
 @NgModule({
+  declarations: [ NotFoundComponent, UnauthorizedComponent ],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })

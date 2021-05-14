@@ -13,4 +13,12 @@ describe('NotificationService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should raise new notification event', (doneFn: DoneFn) => {
+    service.newNotification$.subscribe(txt => {
+      expect(txt).toEqual("TXT");
+      doneFn();
+    });
+    service.sendNotification("TXT");
+  });
 });

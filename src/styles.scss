@@ -39,10 +39,11 @@ app-root {
 .notifications {
   position: absolute;
   min-width: 20vw;
-  min-height: 20vh;
+  min-height: 10vh;
   right: 20px;
   top: 20px;
   border: solid 1px silver;
+  background-color: white;
 }
 
 .content {

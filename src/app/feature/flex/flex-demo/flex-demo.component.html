@@ -1,0 +1,12 @@
+<div fxLayout="row wrap" fxLayout.xs="column wrap"
+  fxLayoutGap="20px grid" fxLayoutGap.xs="10px grid">
+  <div *ngFor="let color of colors; let i = index"
+    fxFlex="0 0 calc(20%)"
+    fxFlex.lt-lg="0 0 calc(25%)"
+    fxFlex.xs
+    style="height: 100px">
+    <div style="height: 100%; text-align: center;" [style.background-color]="color">
+      {{ color }}
+    </div>
+  </div>
+</div>

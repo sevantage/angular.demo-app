@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { FlexLayoutModule } from '@angular/flex-layout'
 
 
 
@@ -10,10 +10,12 @@ import { BrowserModule } from '@angular/platform-browser';
   declarations: [],
   imports: [
     CommonModule,
+    FlexLayoutModule,
     FormsModule,
     RouterModule,
   ],
   exports: [
+    FlexLayoutModule,
     FormsModule,
     RouterModule,
   ]

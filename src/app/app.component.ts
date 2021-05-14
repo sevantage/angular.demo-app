@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { AuthService } from './core/auth/auth.service';
 import { NotificationService } from './core/notifications/notification.service';
 
 @Component({
@@ -13,9 +14,17 @@ export class AppComponent {
 
   notifications: string[] = [];
 
-  constructor(private notificationSvc: NotificationService) {
-    this.notificationSvc.newNotification.subscribe((text) =>
+  constructor(private notificationSvc: NotificationService, private authSvc: AuthService) {
+    this.notificationSvc.newNotification$.subscribe((text: string) =>
       this.notifications.unshift(text)
     );
+  }
+
+  get isAuthorized() {
+    return this.authSvc.isAuthorized;
+  }
+
+  set isAuthorized(value: boolean) {
+    this.authSvc.isAuthorized = value;
   }
 }

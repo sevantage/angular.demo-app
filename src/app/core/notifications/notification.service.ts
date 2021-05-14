@@ -1,14 +1,15 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationService {
-  newNotification = new EventEmitter<string>();
+  newNotification$ = new Subject<string>();
 
   constructor() { }
 
   sendNotification(text: string) {
-    this.newNotification.next(text);
+    this.newNotification$.next(text);
   }
 }
