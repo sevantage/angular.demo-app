@@ -1,0 +1,28 @@
+<div>
+  <input id="red" type="radio" value="red" name="color" [(ngModel)]="color" />
+  <label for="red">Rot</label>
+  <input
+    id="green"
+    type="radio"
+    value="green"
+    name="color"
+    [(ngModel)]="color"
+  />
+  <label for="green">Grün</label>
+</div>
+<div fxLayout="row" fxLayoutGap="40px">
+  <div class="box" [ngClass]="color === 'red' ? 'red' : 'green'"></div>
+  <div
+    class="box"
+    [ngClass]="{ red: color === 'red', green: color === 'green' }"
+  ></div>
+  <div class="box" [class.red]="color === 'red'" [class.green]="color === 'green'"></div>
+</div>
+<div>
+  <ul>
+    <li *ngFor="let item of items; let idx = index; trackBy:trackByItem">
+      #{{ idx }} - <app-logging [value]="item.value"></app-logging>
+    </li>
+  </ul>
+  <button (click)="onAssignNewItems()">Neue Elemente zuweisen</button>
+</div>

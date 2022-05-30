@@ -50,6 +50,11 @@ const routes: Routes = [
       import('./feature/flex/flex.module').then((m) => m.FlexModule),
   },
   {
+    path: 'directives',
+    loadChildren: () =>
+      import('./feature/directives/directives.module').then((m) => m.DirectivesModule),
+  },
+  {
     path: 'unauthorized',
     component: UnauthorizedComponent,
   },
