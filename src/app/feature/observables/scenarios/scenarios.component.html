@@ -1,0 +1,12 @@
+<div fxLayout="row" fxLayoutGap="40px">
+  <button (click)="onZip()">Parallel abfragen mit zip</button>
+  <button (click)="onDependent()">Abhängige Daten abfragen mit switchMap</button>
+  <button (click)="onReload()">Laden nach Intervall und Änderung</button>
+</div>
+<p>
+  Please open Dev Tools -> Network to check the request patterns
+</p>
+<div *ngIf="reloadSubs" fxLayout="row" fxLayoutGap="40px">
+  <button (click)="onChange()">Änderung auslösen</button>
+  <button (click)="unsubscribe()">Reload beenden</button>
+</div>
