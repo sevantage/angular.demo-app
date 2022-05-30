@@ -55,6 +55,11 @@ const routes: Routes = [
       import('./feature/directives/directives.module').then((m) => m.DirectivesModule),
   },
   {
+    path: 'reactive-forms',
+    loadChildren: () =>
+      import('./feature/reactive-forms-demo/reactive-forms-demo.module').then((m) => m.ReactiveFormsDemoModule),
+  },
+  {
     path: 'unauthorized',
     component: UnauthorizedComponent,
   },

@@ -1,0 +1,37 @@
+<div [formGroup]="form" fxLayout="row wrap" fxLayoutGap="20px grid">
+  <div fxFlex="0 0 200px">Kundenname:</div>
+  <div fxFlex="0 0 calc(100% - 200px)">
+    <input type="text" formControlName="name" />
+    Status: {{ status("name") }}
+    <div *ngIf="name.invalid" class="error">
+      Bitte geben Sie einen Kundennamen an.
+    </div>
+  </div>
+  <div fxFlex="0 0 200px">Auftrag:</div>
+  <div fxFlex="0 0 calc(100% - 200px)" formGroupName="order">
+    <input type="text" formControlName="number" />
+    Status: {{ status("order.number") }}
+    <div *ngIf="number.invalid" class="error">
+      Bitte geben Sie eine gerade Auftragsnummer mit vier Ziffern an.
+    </div>
+    <div formArrayName="lines">
+      <button (click)="onAddLine()">Zeile hinzufügen</button>
+      <div fxLayout="column" fxLayoutGap="10px">
+        <div *ngFor="let line of lines.controls; let i = index">
+          {{ i }} <input type="text" [formControlName]="i" /> Status:
+          {{ status("order.lines." + i) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>Status gesamt: {{ status(undefined) }}</div>
+<div class="json">
+  {{ valueText }}
+</div>
+<div fxLayout="row" fxLayoutGap="10px">
+  <button (click)="onPatch()">Patch values</button>
+  <button (click)="form.markAllAsTouched()">Mark all as touched</button>
+  <button (click)="form.markAsUntouched()">Mark all as untouched</button>
+  <button (click)="form.markAsPristine()">Mark all as pristine</button>
+</div>
