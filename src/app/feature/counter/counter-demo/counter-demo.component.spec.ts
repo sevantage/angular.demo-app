@@ -3,6 +3,7 @@ import { CounterComponent } from '../counter/counter.component';
 import { MockBuilder, MockComponent, ngMocks, MockRender } from 'ng-mocks';
 
 import { CounterDemoComponent } from './counter-demo.component';
+import { By } from '@angular/platform-browser';
 
 describe('CounterDemoComponent', () => {
 
@@ -22,5 +23,7 @@ describe('CounterDemoComponent', () => {
     expect(counterComp.value).toBe(123);
     counterComp.valueChange.emit(246);
     expect(fixture.componentInstance.value).toBe(246);
+    fixture.detectChanges();
+    expect(fixture.debugElement.query(By.css("p")).nativeElement.innerText).toBe("Current value: 246");
   });
 });
