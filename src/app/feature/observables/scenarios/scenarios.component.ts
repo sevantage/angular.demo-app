@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { interval, merge, Subject, Subscription, zip } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
-import { TasksService } from 'src/app/core/tasks/tasks.service';
+import { TasksService, Task } from 'src/app/core/tasks/tasks.service';
 
 @Component({
   selector: 'app-scenarios',
@@ -27,7 +27,7 @@ export class ScenariosComponent implements OnInit, OnDestroy {
       this.tasksSvc.getTaskById(2),
       this.tasksSvc.getTaskById(3)
     )
-      .pipe(tap((x) => console.log(x)))
+      .pipe(tap((x: Task[]) => console.log(x)))
       .subscribe();
   }
 
@@ -41,10 +41,10 @@ export class ScenariosComponent implements OnInit, OnDestroy {
     this.tasksSvc
       .getTasks()
       .pipe(
-        tap((tasks) => console.log(tasks)),
-        switchMap((tasks) => this.tasksSvc.getTaskById(tasks[0].id))
+        tap((tasks: Task[]) => console.log(tasks)),
+        switchMap((tasks: Task[]) => this.tasksSvc.getTaskById(tasks[0].id))
       )
-      .subscribe((task) => console.log(task));
+      .subscribe((task: Task) => console.log(task));
   }
 
   onReload() {
@@ -55,6 +55,6 @@ export class ScenariosComponent implements OnInit, OnDestroy {
   }
 
   onChange() {
-    this.changeTrigger.next();
+    this.changeTrigger.next(undefined);
   }
 }

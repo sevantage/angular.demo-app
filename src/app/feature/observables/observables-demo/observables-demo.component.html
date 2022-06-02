@@ -15,3 +15,9 @@
     {{ obsInput$ | async }}
   </p>
 </div>
+<div>
+  <h2>Value from Promise</h2>
+  <p>First value from Observable: {{ firstValue$ | async }}</p>
+  <p>Last value from Observable: {{ lastValue$ | async }}</p>
+  <p>Promise (setTimeout = 5000 ms): {{ promise$ | async }}</p>
+</div>

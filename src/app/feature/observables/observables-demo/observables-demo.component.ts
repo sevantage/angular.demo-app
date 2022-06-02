@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { fromEvent, interval, Observable, Subscription } from 'rxjs';
+import { firstValueFrom, from, fromEvent, interval, lastValueFrom, Observable, of, Subscription } from 'rxjs';
 import { debounceTime, map, tap } from 'rxjs/operators';
 
 @Component({
@@ -22,8 +22,8 @@ export class ObservablesDemoComponent implements OnInit, OnDestroy, AfterViewIni
     this.obsInput$ = fromEvent(this.input.nativeElement, "keydown")
       .pipe(
         debounceTime(1000), // Wait until no event for a second
-        map((ev: any) => (<HTMLInputElement>ev.target)!.value), // Map to value of control
-        tap(txt => console.log(txt)), // Do not change the value, just use it to perform a side task
+        map((ev: any) => <string>(<HTMLInputElement>ev.target)!.value), // Map to value of control
+        tap((txt: string) => console.log(txt)), // Do not change the value, just use it to perform a side task
       );
   }
 
@@ -43,4 +43,10 @@ export class ObservablesDemoComponent implements OnInit, OnDestroy, AfterViewIni
     this.subscription?.unsubscribe();
   }
 
+  private obs = of(1, 2, 3);
+  public firstValue$ = firstValueFrom(this.obs);
+  public lastValue$ = lastValueFrom(this.obs);
+  public promise$ = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Promise resolved"), 5000);
+  });
 }
