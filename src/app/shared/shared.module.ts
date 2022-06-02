@@ -4,6 +4,7 @@ import { PartialsModule } from './partials/partials.module';
 import { PipesModule } from './pipes/pipes.module';
 import { FormsModule } from '@angular/forms';
 import { CommonImportsModule } from './common-imports/common-imports.module';
+import { DirectivesModule } from './directives/directives.module';
 
 
 
@@ -15,12 +16,14 @@ import { CommonImportsModule } from './common-imports/common-imports.module';
     FormsModule,
     PartialsModule,
     PipesModule,
+    DirectivesModule,
   ],
   exports: [
     CommonImportsModule,
     PartialsModule,
     FormsModule,
     PipesModule,
+    DirectivesModule,
   ]
 })
 export class SharedModule { }

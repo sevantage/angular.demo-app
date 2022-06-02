@@ -5,6 +5,7 @@ import { DirectivesRoutingModule } from './directives-routing.module';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoggingComponent } from './logging/logging.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -17,7 +18,8 @@ import { LoggingComponent } from './logging/logging.component';
     CommonModule,
     FormsModule,
     FlexLayoutModule,
-    DirectivesRoutingModule
+    DirectivesRoutingModule,
+    SharedModule,
   ]
 })
 export class DirectivesModule { }
