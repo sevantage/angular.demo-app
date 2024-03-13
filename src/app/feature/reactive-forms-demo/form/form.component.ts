@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
-  FormArray,
-  FormControl,
-  FormGroup,
+  UntypedFormArray,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
   ValidatorFn,
   ValidationErrors,
@@ -23,15 +23,15 @@ export function evenOrderNumber(): ValidatorFn {
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
-  form = new FormGroup({
-    name: new FormControl('Customer 1', Validators.required),
-    order: new FormGroup({
-      number: new FormControl('1234', [
+  form = new UntypedFormGroup({
+    name: new UntypedFormControl('Customer 1', Validators.required),
+    order: new UntypedFormGroup({
+      number: new UntypedFormControl('1234', [
         Validators.pattern(/[0123456789]{4}/),
         Validators.maxLength(4),
         evenOrderNumber(),
       ]),
-      lines: new FormArray([]),
+      lines: new UntypedFormArray([]),
     }),
   });
 
@@ -51,19 +51,19 @@ export class FormComponent implements OnInit {
   }
 
   get name() {
-    return <FormControl>this.form.get('name')!;
+    return <UntypedFormControl>this.form.get('name')!;
   }
 
   get number() {
-    return <FormControl>this.form.get('order.number')!;
+    return <UntypedFormControl>this.form.get('order.number')!;
   }
 
   get lines() {
-    return <FormArray>this.form.get('order.lines')!;
+    return <UntypedFormArray>this.form.get('order.lines')!;
   }
 
   onAddLine() {
-    this.lines.push(new FormControl());
+    this.lines.push(new UntypedFormControl());
   }
 
   get valueText() {
@@ -80,7 +80,7 @@ export class FormComponent implements OnInit {
     };
     this.lines.clear();
     while (this.lines.length < newValues.order.lines.length)
-      this.lines.push(new FormControl(), { emitEvent: false });
+      this.lines.push(new UntypedFormControl(), { emitEvent: false });
     this.form.patchValue(newValues);
   }
 }
