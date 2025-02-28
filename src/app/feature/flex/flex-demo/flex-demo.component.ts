@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-flex-demo',
-  templateUrl: './flex-demo.component.html',
-  styleUrls: ['./flex-demo.component.scss']
+    selector: 'app-flex-demo',
+    templateUrl: './flex-demo.component.html',
+    styleUrls: ['./flex-demo.component.scss'],
+    standalone: false
 })
 export class FlexDemoComponent implements OnInit {
   colors = ['red', 'green', 'blue', 'yellow', 'pink', 'silver', 'black'];

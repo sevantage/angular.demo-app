@@ -3,9 +3,10 @@ import { firstValueFrom, from, fromEvent, interval, lastValueFrom, Observable, o
 import { debounceTime, map, tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-observables-demo',
-  templateUrl: './observables-demo.component.html',
-  styleUrls: ['./observables-demo.component.scss']
+    selector: 'app-observables-demo',
+    templateUrl: './observables-demo.component.html',
+    styleUrls: ['./observables-demo.component.scss'],
+    standalone: false
 })
 export class ObservablesDemoComponent implements OnInit, OnDestroy, AfterViewInit {
   obsInterval$ = interval(1000);

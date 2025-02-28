@@ -5,9 +5,10 @@ export interface Item {
 }
 
 @Component({
-  selector: 'app-directives-demo',
-  templateUrl: './directives-demo.component.html',
-  styleUrls: ['./directives-demo.component.scss'],
+    selector: 'app-directives-demo',
+    templateUrl: './directives-demo.component.html',
+    styleUrls: ['./directives-demo.component.scss'],
+    standalone: false
 })
 export class DirectivesDemoComponent implements OnInit {
   color = 'red';

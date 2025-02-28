@@ -4,9 +4,10 @@ import { switchMap, tap } from 'rxjs/operators';
 import { TasksService, Task } from 'src/app/core/tasks/tasks.service';
 
 @Component({
-  selector: 'app-scenarios',
-  templateUrl: './scenarios.component.html',
-  styleUrls: ['./scenarios.component.scss'],
+    selector: 'app-scenarios',
+    templateUrl: './scenarios.component.html',
+    styleUrls: ['./scenarios.component.scss'],
+    standalone: false
 })
 export class ScenariosComponent implements OnInit, OnDestroy {
   reloadSubs?: Subscription;

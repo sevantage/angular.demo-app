@@ -4,9 +4,10 @@ import { concatMap, mergeMap, switchMap } from 'rxjs/operators';
 import { TasksService } from 'src/app/core/tasks/tasks.service';
 
 @Component({
-  selector: 'app-chained-observables',
-  templateUrl: './chained-observables.component.html',
-  styleUrls: ['./chained-observables.component.scss'],
+    selector: 'app-chained-observables',
+    templateUrl: './chained-observables.component.html',
+    styleUrls: ['./chained-observables.component.scss'],
+    standalone: false
 })
 export class ChainedObservablesComponent implements OnInit {
   constructor(private tasksSvc: TasksService) {}

@@ -3,17 +3,20 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/auth/auth.guard';
 
 @Component({
-  template: '<div>Home</div>',
+    template: '<div>Home</div>',
+    standalone: false
 })
 export class HomeComponent {}
 
 @Component({
-  template: '<div>Not found</div>',
+    template: '<div>Not found</div>',
+    standalone: false
 })
 export class NotFoundComponent {}
 
 @Component({
-  template: '<div>Not authorized</div>',
+    template: '<div>Not authorized</div>',
+    standalone: false
 })
 export class UnauthorizedComponent {}
 
