@@ -43,13 +43,15 @@
 </div>
 <app-block class="notifications">
   <h2 block-header>Notifications</h2>
-  <div *ngIf="notifications?.length">
+  @if(notifications.length) {
+  <div>
     <ul>
-      <li *ngFor="let notification of notifications; let i = index">
-        {{ i }} - {{ notification }}
-      </li>
+      @for (notification of notifications; track $index; let i = $index) {
+      <li>{{ i }} - {{ notification }}</li>
+      }
     </ul>
   </div>
+  }
 </app-block>
 <div class="footer">
   Environment: {{ env.setting }},

@@ -3,24 +3,30 @@
   <div fxFlex="0 0 calc(100% - 200px)">
     <input type="text" formControlName="name" />
     Status: {{ status("name") }}
-    <div *ngIf="name.invalid" class="error">
-      Bitte geben Sie einen Kundennamen an.
-    </div>
+    @if (name.invalid) {
+      <div class="error">
+        Bitte geben Sie einen Kundennamen an.
+      </div>
+    }
   </div>
   <div fxFlex="0 0 200px">Auftrag:</div>
   <div fxFlex="0 0 calc(100% - 200px)" formGroupName="order">
     <input type="text" formControlName="number" />
     Status: {{ status("order.number") }}
-    <div *ngIf="number.invalid" class="error">
-      Bitte geben Sie eine gerade Auftragsnummer mit vier Ziffern an.
-    </div>
+    @if (number.invalid) {
+      <div class="error">
+        Bitte geben Sie eine gerade Auftragsnummer mit vier Ziffern an.
+      </div>
+    }
     <div formArrayName="lines">
       <button (click)="onAddLine()">Zeile hinzufügen</button>
       <div fxLayout="column" fxLayoutGap="10px">
-        <div *ngFor="let line of lines.controls; let i = index">
-          {{ i }} <input type="text" [formControlName]="i" /> Status:
-          {{ status("order.lines." + i) }}
-        </div>
+        @for (line of lines.controls; track line; let i = $index) {
+          <div>
+            {{ i }} <input type="text" [formControlName]="i" /> Status:
+            {{ status("order.lines." + i) }}
+          </div>
+        }
       </div>
     </div>
   </div>

@@ -5,26 +5,22 @@ export interface Item {
 }
 
 @Component({
-    selector: 'app-directives-demo',
-    templateUrl: './directives-demo.component.html',
-    styleUrls: ['./directives-demo.component.scss'],
-    standalone: false
+  selector: 'app-directives-demo',
+  templateUrl: './directives-demo.component.html',
+  styleUrls: ['./directives-demo.component.scss'],
+  standalone: false,
 })
 export class DirectivesDemoComponent implements OnInit {
   color = 'red';
   items: Item[];
 
   constructor() {
-    this.items = [1, 2, 3, 4, 5].map(x => ({ value: x }));
+    this.items = [1, 2, 3, 4, 5].map((x) => ({ value: x }));
   }
 
   ngOnInit(): void {}
 
-  trackByItem(idx: number, item: Item) {
-    return item.value;
-  }
-
   onAssignNewItems() {
-    this.items = this.items.map((x) => ({ value: x.value + 2}));
+    this.items = this.items.map((x) => ({ value: x.value + 2 }));
   }
 }

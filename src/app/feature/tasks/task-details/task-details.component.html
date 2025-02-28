@@ -1,7 +1,11 @@
 <h2>Tasks details</h2>
-<div *ngIf="!task.id">
-  Loading...
-</div>
-<div *ngIf="task.id">
-  <span>{{ task.description }} (done: {{ task.isDone }})</span>
-</div>
+@if (!task.id) {
+  <div>
+    Loading...
+  </div>
+}
+@if (task.id) {
+  <div>
+    <span>{{ task.description }} (done: {{ task.isDone }})</span>
+  </div>
+}

@@ -1,7 +1,13 @@
 <h2>Tasks list</h2>
-<div *ngIf="!tasks?.length">Loading...</div>
-<ul *ngIf="tasks?.length">
-  <li *ngFor="let task of tasks">
-    <a [routerLink]="[task.id]">{{ task.description }}</a>
-  </li>
-</ul>
+@if (!tasks?.length) {
+  <div>Loading...</div>
+}
+@if (tasks?.length) {
+  <ul>
+    @for (task of tasks; track task) {
+      <li>
+        <a [routerLink]="[task.id]">{{ task.description }}</a>
+      </li>
+    }
+  </ul>
+}

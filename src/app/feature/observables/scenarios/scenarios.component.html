@@ -6,7 +6,9 @@
 <p>
   Please open Dev Tools -> Network to check the request patterns
 </p>
-<div *ngIf="reloadSubs" fxLayout="row" fxLayoutGap="40px">
-  <button (click)="onChange()">Änderung auslösen</button>
-  <button (click)="unsubscribe()">Reload beenden</button>
-</div>
+@if (reloadSubs) {
+  <div fxLayout="row" fxLayoutGap="40px">
+    <button (click)="onChange()">Änderung auslösen</button>
+    <button (click)="unsubscribe()">Reload beenden</button>
+  </div>
+}
