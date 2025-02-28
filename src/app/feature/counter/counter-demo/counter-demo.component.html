@@ -1,6 +1,14 @@
+<h2>Standard inputs/outputs</h2>
 <app-counter
   [(value)]="value"
   (increased)="onCounterChanged($event)"
   (decreased)="onCounterChanged($event)"
 ></app-counter>
+<p>Current value: {{ value }}</p>
+<h2>Signal inputs/outputs</h2>
+<app-counter-with-signals
+  [(value)]="value"
+  (increased)="onCounterChanged($event)"
+  (decreased)="onCounterChanged($event)"
+></app-counter-with-signals>
 <p>Current value: {{ value }}</p>
