@@ -3,20 +3,22 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/auth/auth.guard';
 
 @Component({
-    template: '<div>Home</div>',
-    standalone: false
+  selector: 'app-home',
+  template: '<div>Home</div>',
+  standalone: false,
 })
 export class HomeComponent {}
 
 @Component({
-    template: '<div>Not found</div>',
-    standalone: false
+  selector: 'app-not-found',
+  template: '<div>Not found</div>',
+  standalone: false,
 })
 export class NotFoundComponent {}
 
 @Component({
-    template: '<div>Not authorized</div>',
-    standalone: false
+  template: '<div>Not authorized</div>',
+  standalone: false,
 })
 export class UnauthorizedComponent {}
 
@@ -29,13 +31,15 @@ const routes: Routes = [
   {
     path: 'notifier',
     loadChildren: () =>
-      import('./feature/notifier/notifier.module').then((m) => m.NotifierModule),
+      import('./feature/notifier/notifier.module').then(
+        (m) => m.NotifierModule
+      ),
   },
   {
     path: 'tasks',
     loadChildren: () =>
       import('./feature/tasks/tasks.module').then((m) => m.TasksModule),
-    canActivate: [ AuthGuard ],
+    canActivate: [AuthGuard],
   },
   {
     path: 'pipes',
@@ -45,7 +49,9 @@ const routes: Routes = [
   {
     path: 'observables',
     loadChildren: () =>
-      import('./feature/observables/observables.module').then((m) => m.ObservablesModule),
+      import('./feature/observables/observables.module').then(
+        (m) => m.ObservablesModule
+      ),
   },
   {
     path: 'flex',
@@ -55,12 +61,16 @@ const routes: Routes = [
   {
     path: 'directives',
     loadChildren: () =>
-      import('./feature/directives/directives.module').then((m) => m.DirectivesModule),
+      import('./feature/directives/directives.module').then(
+        (m) => m.DirectivesModule
+      ),
   },
   {
     path: 'reactive-forms',
     loadChildren: () =>
-      import('./feature/reactive-forms-demo/reactive-forms-demo.module').then((m) => m.ReactiveFormsDemoModule),
+      import('./feature/reactive-forms-demo/reactive-forms-demo.module').then(
+        (m) => m.ReactiveFormsDemoModule
+      ),
   },
   {
     path: 'unauthorized',
@@ -77,12 +87,17 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'not-found',
-  }
+  },
 ];
 
 @NgModule({
-  declarations: [ NotFoundComponent, UnauthorizedComponent ],
-  imports: [RouterModule.forRoot(routes, { enableTracing: false, preloadingStrategy: PreloadAllModules })],
+  declarations: [NotFoundComponent, UnauthorizedComponent],
+  imports: [
+    RouterModule.forRoot(routes, {
+      enableTracing: false,
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
