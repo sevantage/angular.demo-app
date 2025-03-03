@@ -39,8 +39,6 @@ export class FormComponent implements OnInit {
     }),
   });
 
-  constructor() {}
-
   ngOnInit(): void {
     this.form.valueChanges.subscribe((val) => console.log(val));
   }
@@ -55,15 +53,17 @@ export class FormComponent implements OnInit {
   }
 
   get name() {
-    return <FormControl<string>>this.form.get('name')!;
+    return this.form.get('name')! as FormControl<string>;
   }
 
   get number() {
-    return <FormControl<string>>this.form.get('order.number')!;
+    return this.form.get('order.number')! as FormControl<string>;
   }
 
   get lines() {
-    return <FormArray<FormControl<string | null>>>this.form.get('order.lines')!;
+    return this.form.get('order.lines')! as FormArray<
+      FormControl<string | null>
+    >;
   }
 
   onAddLine() {

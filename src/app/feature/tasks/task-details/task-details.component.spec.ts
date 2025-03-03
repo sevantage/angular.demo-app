@@ -9,6 +9,7 @@ import { TaskDetailsComponent } from './task-details.component';
 describe('TaskDetailsComponent', () => {
   let component: TaskDetailsComponent;
   let fixture: ComponentFixture<TaskDetailsComponent>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let tasksSvcSpy: any;
 
   beforeEach(async () => {

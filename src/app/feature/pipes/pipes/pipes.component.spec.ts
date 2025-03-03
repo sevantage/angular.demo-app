@@ -14,7 +14,7 @@ describe('PipesComponent', () => {
     imports: [
         FormsModule,
         PipesComponent,
-        MockPipe(DoublePipe, value => 123),
+        MockPipe(DoublePipe, () => 123),
     ]
 })
     .compileComponents();

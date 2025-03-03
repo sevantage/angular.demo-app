@@ -7,20 +7,16 @@ import { TasksListComponent } from './tasks-list.component';
 describe('TasksListComponent', () => {
   let component: TasksListComponent;
   let fixture: ComponentFixture<TasksListComponent>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let tasksSvcSpy: any;
 
   beforeEach(async () => {
     tasksSvcSpy = jasmine.createSpyObj(TasksService, ['getTasks']);
-    tasksSvcSpy.getTasks.and.returnValue(
-      of([])
-    );
+    tasksSvcSpy.getTasks.and.returnValue(of([]));
     await TestBed.configureTestingModule({
-    imports: [TasksListComponent],
-    providers: [
-        { provide: TasksService, useValue: tasksSvcSpy },
-    ]
-})
-    .compileComponents();
+      imports: [TasksListComponent],
+      providers: [{ provide: TasksService, useValue: tasksSvcSpy }],
+    }).compileComponents();
   });
 
   beforeEach(() => {

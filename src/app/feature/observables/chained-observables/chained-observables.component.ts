@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FlexModule } from '@angular/flex-layout/flex';
 import { range } from 'rxjs';
 import { concatMap, mergeMap, switchMap } from 'rxjs/operators';
@@ -10,10 +10,8 @@ import { TasksService } from 'src/app/core/tasks/tasks.service';
   styleUrls: ['./chained-observables.component.scss'],
   imports: [FlexModule],
 })
-export class ChainedObservablesComponent implements OnInit {
+export class ChainedObservablesComponent {
   constructor(private tasksSvc: TasksService) {}
-
-  ngOnInit(): void {}
 
   onConcatMap() {
     const higherOrderObs = range(1, 3);

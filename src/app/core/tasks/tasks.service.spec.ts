@@ -7,6 +7,7 @@ import { TasksService } from './tasks.service';
 
 describe('TasksService', () => {
   let service: TasksService;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let httpClientSpy: any;
 
   beforeEach(() => {

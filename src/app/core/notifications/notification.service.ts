@@ -7,8 +7,6 @@ import { Subject } from 'rxjs';
 export class NotificationService {
   newNotification$ = new Subject<string>();
 
-  constructor() { }
-
   sendNotification(text: string) {
     this.newNotification$.next(text);
   }

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FlexModule } from '@angular/flex-layout/flex';
 import { interval, merge, Subject, Subscription, zip } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
@@ -11,13 +11,11 @@ import { TasksService } from 'src/app/core/tasks/tasks.service';
   styleUrls: ['./scenarios.component.scss'],
   imports: [FlexModule],
 })
-export class ScenariosComponent implements OnInit, OnDestroy {
+export class ScenariosComponent implements OnDestroy {
   reloadSubs?: Subscription;
   changeTrigger = new Subject();
 
   constructor(private tasksSvc: TasksService) {}
-
-  ngOnInit(): void {}
 
   ngOnDestroy() {
     this.unsubscribe();

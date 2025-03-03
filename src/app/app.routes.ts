@@ -5,7 +5,7 @@ import { AuthGuard } from './core/auth/auth.guard';
 @Component({
   selector: 'app-home',
   template: '<div>Home</div>',
-  standalone: false,
+  
 })
 export class HomeComponent {}
 

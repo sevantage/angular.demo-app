@@ -6,14 +6,15 @@ import { ChainedObservablesComponent } from './chained-observables.component';
 describe('ChainedObservablesComponent', () => {
   let component: ChainedObservablesComponent;
   let fixture: ComponentFixture<ChainedObservablesComponent>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let tasksSvcSpy: any;
 
   beforeEach(async () => {
     tasksSvcSpy = jasmine.createSpyObj(TasksService, ['getTaskById']);
     await TestBed.configureTestingModule({
-    imports: [ChainedObservablesComponent],
-    providers: [{ provide: TasksService, useValue: tasksSvcSpy }],
-}).compileComponents();
+      imports: [ChainedObservablesComponent],
+      providers: [{ provide: TasksService, useValue: tasksSvcSpy }],
+    }).compileComponents();
   });
 
   beforeEach(() => {

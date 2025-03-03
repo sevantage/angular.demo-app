@@ -7,6 +7,7 @@ import { NotifierComponent } from './notifier.component';
 describe('NotifierComponent', () => {
   let component: NotifierComponent;
   let fixture: ComponentFixture<NotifierComponent>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let notificationSvcSpy: any;
 
   beforeEach(async () => {

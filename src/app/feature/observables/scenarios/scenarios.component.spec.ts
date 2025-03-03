@@ -6,6 +6,7 @@ import { ScenariosComponent } from './scenarios.component';
 describe('ScenariosComponent', () => {
   let component: ScenariosComponent;
   let fixture: ComponentFixture<ScenariosComponent>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let tasksSvcSpy: any;
 
   beforeEach(async () => {
