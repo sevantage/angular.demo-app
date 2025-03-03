@@ -37,6 +37,7 @@ describe('TaskDetailsComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TaskDetailsComponent);
+    fixture.componentRef.setInput("id", "123")
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
