@@ -1,6 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators, ValidatorFn, ValidationErrors, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexModule } from '@angular/flex-layout/flex';
+import {
+  AbstractControl,
+  FormArray,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 
 export function evenOrderNumber(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -11,21 +21,21 @@ export function evenOrderNumber(): ValidatorFn {
 }
 
 @Component({
-    selector: 'app-form',
-    templateUrl: './form.component.html',
-    styleUrls: ['./form.component.scss'],
-    imports: [FlexModule, FormsModule, ReactiveFormsModule]
+  selector: 'app-form',
+  templateUrl: './form.component.html',
+  styleUrls: ['./form.component.scss'],
+  imports: [FlexModule, FormsModule, ReactiveFormsModule],
 })
 export class FormComponent implements OnInit {
-  form = new UntypedFormGroup({
-    name: new UntypedFormControl('Customer 1', Validators.required),
-    order: new UntypedFormGroup({
-      number: new UntypedFormControl('1234', [
+  form = new FormGroup({
+    name: new FormControl('Customer 1', Validators.required),
+    order: new FormGroup({
+      number: new FormControl('1234', [
         Validators.pattern(/[0123456789]{4}/),
         Validators.maxLength(4),
         evenOrderNumber(),
       ]),
-      lines: new UntypedFormArray([]),
+      lines: new FormArray<FormControl<string | null>>([]),
     }),
   });
 
@@ -45,19 +55,19 @@ export class FormComponent implements OnInit {
   }
 
   get name() {
-    return <UntypedFormControl>this.form.get('name')!;
+    return <FormControl<string>>this.form.get('name')!;
   }
 
   get number() {
-    return <UntypedFormControl>this.form.get('order.number')!;
+    return <FormControl<string>>this.form.get('order.number')!;
   }
 
   get lines() {
-    return <UntypedFormArray>this.form.get('order.lines')!;
+    return <FormArray<FormControl<string | null>>>this.form.get('order.lines')!;
   }
 
   onAddLine() {
-    this.lines.push(new UntypedFormControl());
+    this.lines.push(new FormControl(''));
   }
 
   get valueText() {
@@ -74,7 +84,7 @@ export class FormComponent implements OnInit {
     };
     this.lines.clear();
     while (this.lines.length < newValues.order.lines.length)
-      this.lines.push(new UntypedFormControl(), { emitEvent: false });
+      this.lines.push(new FormControl(), { emitEvent: false });
     this.form.patchValue(newValues);
   }
 }
