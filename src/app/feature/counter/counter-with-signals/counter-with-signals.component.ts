@@ -1,10 +1,9 @@
 import { Component, computed, model, output } from '@angular/core';
 
 @Component({
-  selector: 'app-counter-with-signals',
-  templateUrl: './counter-with-signals.component.html',
-  styleUrl: './counter-with-signals.component.scss',
-  standalone: false,
+    selector: 'app-counter-with-signals',
+    templateUrl: './counter-with-signals.component.html',
+    styleUrl: './counter-with-signals.component.scss',
 })
 export class CounterWithSignalsComponent {
   value = model(0);

@@ -1,12 +1,13 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { firstValueFrom, from, fromEvent, interval, lastValueFrom, Observable, of, Subscription } from 'rxjs';
 import { debounceTime, map, tap } from 'rxjs/operators';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'app-observables-demo',
     templateUrl: './observables-demo.component.html',
     styleUrls: ['./observables-demo.component.scss'],
-    standalone: false
+    imports: [AsyncPipe]
 })
 export class ObservablesDemoComponent implements OnInit, OnDestroy, AfterViewInit {
   obsInterval$ = interval(1000);

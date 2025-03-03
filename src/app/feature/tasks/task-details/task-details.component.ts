@@ -5,8 +5,7 @@ import { Task, TasksService } from 'src/app/core/tasks/tasks.service';
 @Component({
     selector: 'app-task-details',
     templateUrl: './task-details.component.html',
-    styleUrls: ['./task-details.component.scss'],
-    standalone: false
+    styleUrls: ['./task-details.component.scss']
 })
 export class TaskDetailsComponent implements OnInit {
   task: Task = { id: 0, description: '', isDone: false };

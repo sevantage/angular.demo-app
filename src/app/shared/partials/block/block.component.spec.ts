@@ -8,8 +8,8 @@ describe('BlockComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BlockComponent ]
-    })
+    imports: [BlockComponent]
+})
     .compileComponents();
   });
 

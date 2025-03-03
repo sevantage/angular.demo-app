@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Task, TasksService } from 'src/app/core/tasks/tasks.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-tasks-list',
     templateUrl: './tasks-list.component.html',
     styleUrls: ['./tasks-list.component.scss'],
-    standalone: false
+    imports: [RouterLink]
 })
 export class TasksListComponent implements OnInit {
   tasks: Task[] = [];

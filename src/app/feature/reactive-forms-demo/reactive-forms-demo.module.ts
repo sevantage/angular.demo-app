@@ -8,14 +8,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
-  declarations: [
-    FormComponent
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    ReactiveFormsDemoRoutingModule,
-    FlexLayoutModule,
-  ]
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        ReactiveFormsDemoRoutingModule,
+        FlexLayoutModule,
+        FormComponent,
+    ]
 })
 export class ReactiveFormsDemoModule { }

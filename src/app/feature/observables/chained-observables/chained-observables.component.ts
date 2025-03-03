@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { from, interval, range } from 'rxjs';
 import { concatMap, mergeMap, switchMap } from 'rxjs/operators';
 import { TasksService } from 'src/app/core/tasks/tasks.service';
+import { FlexModule } from '@angular/flex-layout/flex';
 
 @Component({
     selector: 'app-chained-observables',
     templateUrl: './chained-observables.component.html',
     styleUrls: ['./chained-observables.component.scss'],
-    standalone: false
+    imports: [FlexModule]
 })
 export class ChainedObservablesComponent implements OnInit {
   constructor(private tasksSvc: TasksService) {}

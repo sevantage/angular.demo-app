@@ -8,8 +8,8 @@ describe('FlexDemoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FlexDemoComponent ]
-    })
+    imports: [FlexDemoComponent]
+})
     .compileComponents();
   });
 

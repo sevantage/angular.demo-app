@@ -15,11 +15,11 @@ describe('TasksListComponent', () => {
       of([])
     );
     await TestBed.configureTestingModule({
-      declarations: [ TasksListComponent ],
-      providers: [
+    imports: [TasksListComponent],
+    providers: [
         { provide: TasksService, useValue: tasksSvcSpy },
-      ]
-    })
+    ]
+})
     .compileComponents();
   });
 

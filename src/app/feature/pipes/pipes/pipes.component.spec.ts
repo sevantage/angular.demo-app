@@ -11,14 +11,12 @@ describe('PipesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
+    imports: [
+        FormsModule,
         PipesComponent,
         MockPipe(DoublePipe, value => 123),
-      ],
-      imports: [
-        FormsModule,
-      ]
-    })
+    ]
+})
     .compileComponents();
   });
 

@@ -11,9 +11,9 @@ describe('ChainedObservablesComponent', () => {
   beforeEach(async () => {
     tasksSvcSpy = jasmine.createSpyObj(TasksService, ['getTaskById']);
     await TestBed.configureTestingModule({
-      declarations: [ChainedObservablesComponent],
-      providers: [{ provide: TasksService, useValue: tasksSvcSpy }],
-    }).compileComponents();
+    imports: [ChainedObservablesComponent],
+    providers: [{ provide: TasksService, useValue: tasksSvcSpy }],
+}).compileComponents();
   });
 
   beforeEach(() => {

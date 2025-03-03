@@ -17,22 +17,21 @@ describe('TaskDetailsComponent', () => {
       of({ id: 123, description: '', isDone: false })
     );
     await TestBed.configureTestingModule({
-      declarations: [TaskDetailsComponent],
-      imports: [RouterTestingModule],
-      providers: [
+    imports: [RouterTestingModule, TaskDetailsComponent],
+    providers: [
         { provide: TasksService, useValue: tasksSvcSpy },
         {
-          provide: ActivatedRoute,
-          useValue: {
-            snapshot: {
-              params: {
-                id: 123,
-              },
+            provide: ActivatedRoute,
+            useValue: {
+                snapshot: {
+                    params: {
+                        id: 123,
+                    },
+                },
             },
-          },
         },
-      ],
-    }).compileComponents();
+    ],
+}).compileComponents();
   });
 
   beforeEach(() => {

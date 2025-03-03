@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from 'src/app/core/notifications/notification.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-notifier',
     templateUrl: './notifier.component.html',
     styleUrls: ['./notifier.component.scss'],
-    standalone: false
+    imports: [FormsModule]
 })
 export class NotifierComponent implements OnInit {
   text: string = '';

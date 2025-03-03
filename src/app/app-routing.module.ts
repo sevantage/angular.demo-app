@@ -10,16 +10,12 @@ import { AuthGuard } from './core/auth/auth.guard';
 export class HomeComponent {}
 
 @Component({
-  selector: 'app-not-found',
-  template: '<div>Not found</div>',
-  standalone: false,
+    selector: 'app-not-found',
+    template: '<div>Not found</div>',
 })
 export class NotFoundComponent {}
 
-@Component({
-  template: '<div>Not authorized</div>',
-  standalone: false,
-})
+@Component({ template: '<div>Not authorized</div>', })
 export class UnauthorizedComponent {}
 
 const routes: Routes = [
@@ -91,13 +87,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [NotFoundComponent, UnauthorizedComponent],
-  imports: [
-    RouterModule.forRoot(routes, {
-      enableTracing: false,
-      preloadingStrategy: PreloadAllModules,
-    }),
-  ],
-  exports: [RouterModule],
+    imports: [
+        RouterModule.forRoot(routes, {
+            enableTracing: false,
+            preloadingStrategy: PreloadAllModules,
+        }),
+        NotFoundComponent, UnauthorizedComponent,
+    ],
+    exports: [RouterModule],
 })
 export class AppRoutingModule {}

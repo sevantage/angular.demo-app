@@ -11,9 +11,9 @@ describe('ScenariosComponent', () => {
   beforeEach(async () => {
     tasksSvcSpy = jasmine.createSpyObj(TasksService, ['getTaskById']);
     await TestBed.configureTestingModule({
-      declarations: [ ScenariosComponent ],
-      providers: [{ provide: TasksService, useValue: tasksSvcSpy }],
-    })
+    imports: [ScenariosComponent],
+    providers: [{ provide: TasksService, useValue: tasksSvcSpy }],
+})
     .compileComponents();
   });
 

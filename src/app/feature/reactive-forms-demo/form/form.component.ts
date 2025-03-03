@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AbstractControl,
-  UntypedFormArray,
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-  ValidatorFn,
-  ValidationErrors,
-} from '@angular/forms';
+import { AbstractControl, UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators, ValidatorFn, ValidationErrors, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexModule } from '@angular/flex-layout/flex';
 
 export function evenOrderNumber(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -21,7 +14,7 @@ export function evenOrderNumber(): ValidatorFn {
     selector: 'app-form',
     templateUrl: './form.component.html',
     styleUrls: ['./form.component.scss'],
-    standalone: false
+    imports: [FlexModule, FormsModule, ReactiveFormsModule]
 })
 export class FormComponent implements OnInit {
   form = new UntypedFormGroup({

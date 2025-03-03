@@ -14,12 +14,11 @@ describe('NotifierComponent', () => {
       'sendNotification',
     ]);
     await TestBed.configureTestingModule({
-      declarations: [NotifierComponent],
-      imports: [FormsModule],
-      providers: [
+    imports: [FormsModule, NotifierComponent],
+    providers: [
         { provide: NotificationService, useValue: notificationSvcSpy },
-      ],
-    }).compileComponents();
+    ],
+}).compileComponents();
   });
 
   beforeEach(() => {

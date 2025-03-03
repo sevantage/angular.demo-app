@@ -8,15 +8,13 @@ import { BlockComponent } from './shared/partials/block/block.component';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
+    imports: [
         RouterTestingModule,
         FormsModule,
-      ],
-      declarations: [
-        AppComponent,
         MockComponent(BlockComponent),
-      ],
-    }).compileComponents();
+        AppComponent,
+    ],
+}).compileComponents();
   });
 
   it('should create the app', () => {
