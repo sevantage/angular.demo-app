@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { from, interval, range } from 'rxjs';
+import { FlexModule } from '@angular/flex-layout/flex';
+import { range } from 'rxjs';
 import { concatMap, mergeMap, switchMap } from 'rxjs/operators';
 import { TasksService } from 'src/app/core/tasks/tasks.service';
-import { FlexModule } from '@angular/flex-layout/flex';
 
 @Component({
-    selector: 'app-chained-observables',
-    templateUrl: './chained-observables.component.html',
-    styleUrls: ['./chained-observables.component.scss'],
-    imports: [FlexModule]
+  selector: 'app-chained-observables',
+  templateUrl: './chained-observables.component.html',
+  styleUrls: ['./chained-observables.component.scss'],
+  imports: [FlexModule],
 })
 export class ChainedObservablesComponent implements OnInit {
   constructor(private tasksSvc: TasksService) {}
@@ -18,21 +18,21 @@ export class ChainedObservablesComponent implements OnInit {
   onConcatMap() {
     const higherOrderObs = range(1, 3);
     higherOrderObs
-      .pipe(concatMap((i) => this.tasksSvc.getTaskById(i)))
+      .pipe(concatMap((i) => this.tasksSvc.getTaskById(i.toFixed(0))))
       .subscribe();
   }
 
   onMergeMap() {
     const higherOrderObs = range(1, 3);
     higherOrderObs
-      .pipe(mergeMap((i) => this.tasksSvc.getTaskById(i)))
+      .pipe(mergeMap((i) => this.tasksSvc.getTaskById(i.toFixed(0))))
       .subscribe();
   }
 
   onSwitchMap() {
     const higherOrderObs = range(1, 3);
     higherOrderObs
-      .pipe(switchMap((i) => this.tasksSvc.getTaskById(i)))
+      .pipe(switchMap((i) => this.tasksSvc.getTaskById(i.toFixed(0))))
       .subscribe();
   }
 }

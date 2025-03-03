@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   setting: "demo-environment",
-  apiUrl: 'https://sev-angulardemo-svc.azurewebsites.net/api',
+  apiUrl: 'http://localhost:3000',
 };
 
 /*

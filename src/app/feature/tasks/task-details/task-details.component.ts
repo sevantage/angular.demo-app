@@ -9,12 +9,12 @@ import { TasksService } from 'src/app/core/tasks/tasks.service';
   styleUrls: ['./task-details.component.scss'],
 })
 export class TaskDetailsComponent implements OnInit {
-  task: Task = { id: 0, description: '', isDone: false };
+  task: Task = { id: '', description: '', isDone: false };
 
   constructor(private tasksSvc: TasksService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const id: number = this.route.snapshot.params['id'];
+    const id: string = this.route.snapshot.params['id'];
     this.tasksSvc.getTaskById(id).subscribe((task) => (this.task = task));
   }
 }

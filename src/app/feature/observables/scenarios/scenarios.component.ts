@@ -26,9 +26,9 @@ export class ScenariosComponent implements OnInit, OnDestroy {
   onZip() {
     this.unsubscribe();
     zip(
-      this.tasksSvc.getTaskById(1),
-      this.tasksSvc.getTaskById(2),
-      this.tasksSvc.getTaskById(3)
+      this.tasksSvc.getTaskById('1'),
+      this.tasksSvc.getTaskById('2'),
+      this.tasksSvc.getTaskById('3')
     )
       .pipe(tap((x: Task[]) => console.log(x)))
       .subscribe();
