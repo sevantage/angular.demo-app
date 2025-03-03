@@ -1,14 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FlexModule } from '@angular/flex-layout/flex';
 import { interval, merge, Subject, Subscription, zip } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
-import { TasksService, Task } from 'src/app/core/tasks/tasks.service';
-import { FlexModule } from '@angular/flex-layout/flex';
+import { Task } from 'src/app/core/tasks/task';
+import { TasksService } from 'src/app/core/tasks/tasks.service';
 
 @Component({
-    selector: 'app-scenarios',
-    templateUrl: './scenarios.component.html',
-    styleUrls: ['./scenarios.component.scss'],
-    imports: [FlexModule]
+  selector: 'app-scenarios',
+  templateUrl: './scenarios.component.html',
+  styleUrls: ['./scenarios.component.scss'],
+  imports: [FlexModule],
 })
 export class ScenariosComponent implements OnInit, OnDestroy {
   reloadSubs?: Subscription;

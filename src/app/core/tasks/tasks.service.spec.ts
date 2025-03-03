@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 
-import { Task, TasksService } from './tasks.service';
+import { Task } from './task';
+import { TasksService } from './tasks.service';
 
 describe('TasksService', () => {
   let service: TasksService;
@@ -15,8 +16,8 @@ describe('TasksService', () => {
         {
           provide: HttpClient,
           useValue: httpClientSpy,
-        }
-      ]
+        },
+      ],
     });
     service = TestBed.inject(TasksService);
   });
@@ -27,11 +28,11 @@ describe('TasksService', () => {
 
   it('should return tasks', (doneFn: DoneFn) => {
     const tasks: Task[] = [];
-    httpClientSpy.get.and.returnValue(of(tasks))
+    httpClientSpy.get.and.returnValue(of(tasks));
     const actual = service.getTasks();
-    actual.subscribe(actualTasks => {
+    actual.subscribe((actualTasks) => {
       expect(actualTasks).toBe(tasks);
       doneFn();
-    })
+    });
   });
 });
