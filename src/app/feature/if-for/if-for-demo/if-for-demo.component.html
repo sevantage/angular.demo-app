@@ -1,0 +1,24 @@
+<div>
+  <h1>If</h1>
+  <div class="if">
+    <button (click)="isVisible = !isVisible">Toggle visibility</button>
+    <app-logging
+      [hidden]="!isVisible"
+      [value]="'hidden-attribute'"
+    ></app-logging>
+    @if(isVisible) {
+    <app-logging [value]="'@if'"></app-logging>
+    }
+  </div>
+</div>
+<div>
+  <h1>For</h1>
+  <ul>
+    @for(item of items; track item.value) {
+    <li>
+      #{{ $index }} - <app-logging [value]="item.value.toFixed()"></app-logging>
+    </li>
+    }
+  </ul>
+  <button (click)="onAssignNewItems()">Neue Elemente zuweisen</button>
+</div>

@@ -6,7 +6,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./logging.component.scss'],
 })
 export class LoggingComponent implements OnInit, OnDestroy {
-  @Input() value = 0;
+  @Input({required: true}) value = '';
 
   ngOnInit(): void {
     console.log(this.value, 'init');

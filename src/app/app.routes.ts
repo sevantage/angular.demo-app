@@ -25,6 +25,11 @@ export const routes: Routes = [
       import('./feature/counter/counter.routes').then((m) => m.counterRoutes),
   },
   {
+    path: 'if-for',
+    loadChildren: () =>
+      import('./feature/if-for/if-for.routes').then((m) => m.ifForRoutes),
+  },
+  {
     path: 'classes',
     loadChildren: () =>
       import('./feature/classes/classes.routes').then((m) => m.classesRoutes),
