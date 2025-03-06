@@ -25,6 +25,11 @@ export const routes: Routes = [
       import('./feature/counter/counter.routes').then((m) => m.counterRoutes),
   },
   {
+    path: 'classes',
+    loadChildren: () =>
+      import('./feature/classes/classes.routes').then((m) => m.classesRoutes),
+  },
+  {
     path: 'notifier',
     loadChildren: () =>
       import('./feature/notifier/notifier.routes').then(

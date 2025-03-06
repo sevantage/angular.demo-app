@@ -1,8 +1,6 @@
-import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { ExtendedModule } from '@angular/flex-layout/extended';
 import { FlexModule } from '@angular/flex-layout/flex';
-import { FormsModule } from '@angular/forms';
 import { ToggleClassDirective } from '../../../shared/directives/toggle-class/toggle-class.directive';
 import { LoggingComponent } from '../logging/logging.component';
 
@@ -15,16 +13,13 @@ export interface Item {
   templateUrl: './directives-demo.component.html',
   styleUrls: ['./directives-demo.component.scss'],
   imports: [
-    FormsModule,
     FlexModule,
-    NgClass,
     ExtendedModule,
     LoggingComponent,
     ToggleClassDirective,
   ],
 })
 export class DirectivesDemoComponent {
-  color = 'red';
   items: Item[];
 
   constructor() {
